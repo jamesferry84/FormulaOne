@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<head>
+	<title>Formula 1 Predictor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/styles.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<div class="navbar navbar-inverse navbar-static-top">
+				<div class="container">
+					<a href="#" class="navbar-brand">F1 Predictor</a>
+
+					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+					</button>
+
+					<div class="collapse navbar-collapse navHeaderCollapse">
+						<ul class = "nav navbar-nav navbar-right">
+							<li class = "active"><a href="#">Home</a></li>
+							<li><a href="#">Rules</a></li>
+							<li class = "dropdown">
+								<a href="#" class = "dropdown-toggle" data-toggle = "dropdown">Make This Race's Selections <b class = "caret"></b></a>
+								<ul class = "dropdown-menu">
+									<li><a href="#">Choose Driver</a></li>
+									<li><a href="#">Choose Team</a></li>
+								</ul>
+							</li>
+							
+							<li><a href="#contact" data-toggle="modal">Register</a></li>
+						</ul>
+					</div>
+				</div>
+		</div>
+
+		<div class="container">
+			<form class="form-horizontal" role="form">
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			    <div class="col-sm-4">
+			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+			    <div class="col-sm-4">
+			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <div class="checkbox">
+			        <label>
+			          <input type="checkbox"> Remember me
+			        </label>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-default">Sign in</button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+
+
+		<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">Site built by James R Ferry</p>
+				<!--<a class = "navbar-btn btn-danger btn pull-right">Subscribe on YouTube</a>-->
+			</div>
+		</div>
+
+		<div class="modal fade" id="contact" role="dialog">
+			<div class ="modal-dialog">
+				<div class = "modal-content">
+					<form class="form-horizontal">
+						<div class="modal-header">
+							<h4>Modal Text Here</h4>
+						</div>
+						<div class = "modal-body">
+							<div class="form-group">
+								<label for = "contact-name" class = "col-lg-2 control-label">Name:</label>
+								<div class = "col-lg-10">
+									<input type = "text" class="form-control" id="contact-name" placeholder="Hint Text" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for = "contact-email" class = "col-lg-2 control-label">Email:</label>
+								<div class = "col-lg-10">
+									<input type = "email" class="form-control" id="contact-email" placeholder="Hint Text" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for = "contact-message" class = "col-lg-2 control-label">Message:</label>
+								<div class = "col-lg-10">
+									<textarea class="form-control" rows="8"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class = "modal-footer">
+							<a href="#" class="btn btn-default" data-dismiss = "modal">Modal Close Button</a>
+							<button class="btn btn-primary" type="submit">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>

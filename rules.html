@@ -1,0 +1,183 @@
+<?php include 'connect.php'; ?>
+
+<!doctype html>
+<html>
+	<head>
+	<title>Formula 1 Predictor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/styles.css" rel="stylesheet" />
+	</head>
+	<body>
+
+		<div class="navbar navbar-inverse navbar-static-top">
+				<div class="container">
+					<a href="index.html" class="navbar-brand">F1 Predictor</a>
+
+					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+						<span class = "icon-bar"></span>
+					</button>
+
+					<div class="collapse navbar-collapse navHeaderCollapse">
+						<ul class = "nav navbar-nav navbar-right">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="rules.html">Rules</a></li>
+						</ul>
+					</div>
+				</div>
+		</div>
+
+		<div class="container">
+			<div class = "row">
+				<div class = "col-lg-12">
+					<div class = "panel panel-default">
+						<div class = "panel-body">
+							<div class="page-header">
+								<h3>HOW TO PLAY</h3>
+							</div>
+							<ol>
+								<li>Register your intention to join the league by emailing pmc@cs.stir.ac.uk and pay your 3 pound entry fee to Paul McMenemy</li>
+								<li>Much like the FIA, we have made extensive alterations to the rules in this new season. The changes are:
+									<ul>
+										<li>We have dropped the 'Fixed' Driver from your team selection.</li>
+										<li>Changed your team line-up to 2 Constructors and 2 Drivers for each race.</li>
+										<li>Unspent team budgets from one race will be rolled over into the next race.</li>
+										<li>Driver and Constructor prices will be recalculated after each race, based on their performance over a rolling 12 month period. For example, once the Australian G.P. is complete each Driver's and Team’s price for the next race will be re-calculated on the Total 2013 season points scored minus the 2013 Australian GP plus the 2014 Australian GP points, and so on after each race.</li>
+										<li>Each team will be given 4 'Jokers' to play on any race over the season (except the last race in Abu Dhabi, which is being scored double points by the FIA). A Joker played before a race </li>
+										<li>Driver and Constructor prices will be calculated using the points they have scored in OUR league over the previous 12 months, rather than only the points they have earned in the official F1 championship.</li>
+										<li>Any Driver or Constructor price increases will not impact your current team selection; if a Driver or Constructor you have currently selected undergoes a price change after a race, your current unspent budget will not alter, although the value of your team will increase. If you remove a Driver or Constructor from your team, you will only receive the current value of that Driver or Constructor in return to spend on a replacement.</li>
+									</ul>
+								</li>
+								<li>The current1 race calendar is:</li>
+								<div class="table-responsive  col-sm-12">
+	  								<table class="table table-bordered">
+	  									<tr class ="info text-center">
+	  										<td>Date</td>
+	  										<td>Country</td>
+	  									</tr>
+	  									<?php
+											$query = "select * from racecalendar";
+											$queryResult = mysqli_query($sqli, $query);
+											$numrows=mysqli_num_rows($queryResult);
+
+		  									while($row = mysqli_fetch_assoc($queryResult))
+		  									{
+
+		  								?>
+	  										<tr class="text-center">
+		  										<td><?php echo $row["Date"]?></td>
+		  										<td><?php echo $row["Country"]?></td>
+	  										</tr>
+	  									
+	  									<?php 
+	  										} 
+	  									?>
+									</table>
+								</div>
+
+								
+
+								<li>You cannot submit the same Driver or Constructor more than once for a race, e.g. choose Alonso as your Driver twice.</li>
+								<li>Your Team can be altered between Grand Prixs but not during a Grand Prix weekend, which runs from the start of the First Practice session until the end of the Race itself during each Grand Prix weekend.</li>
+								<li>There are a number of ways in which your Drivers and Constructors can score points (see below for an example). </li>
+
+							<div class="table-responsive  col-sm-12">
+  								<table class="table table-bordered">
+  									<tr class ="info">
+  										<td>Drivers</td>
+  										<td>Constructors</td>
+  									</tr>
+  									<tr>
+  										<td>16/03/2014</td>
+  										<td>Australia</td>
+  									</tr>
+								</table>
+							</div>
+
+							<li>The constructor placings will be determined by addition of the Constructor's Driver's final race positions, with the lowest scoring constructor placing first and the highest scoring constructor placing eleventh. In the event of a tie between constructors for a particular race, the average number of points will be used, i.e. 3 constructors tying for 4th place, then the points for 4th, 5th and 6th places will be equally shared between the 3 constructors (rounded up to nearest whole number).</li>
+							<li>"You are allocated an operating budget for your team during the season - you can spend up to £"budget" million on your teams with each Driver and Constructor incurring a cost according to the current prices shown below:"</li>
+
+							<div class="table-responsive  col-sm-12">
+  								<table class="table table-bordered">
+  									<tr class ="info">
+  										
+  										<td>Constructor</td>
+  										<td>Price</td>
+  										<td>Driver</td>
+  										<td>Price</td>
+  										<td>Driver</td>
+  										<td>Price</td>
+  									</tr>
+  									<tr>
+  										<td>16/03/2014</td>
+  										<td>Australia</td>
+  									</tr>
+								</table>
+							</div>
+
+							<li>Each entry and alteration made to your team will only be accepted by email - no verbal changes will be accepted. This is to maintain a time stamp on entries to ensure that they have been made within the time windows described in points 4 and 5 above.</li>
+							<li>If you fail to submit your team for a race on time , your submission for the previous race will be used. This will prevent anyone being excessively penalised for late or no submission of a team.</li>
+							<li>If any constructor teams are tied for Best Combined Qualifying Performance, then all tied teams will score 5 points.</li>
+							<li>The Driver Placing, Constructor Placing, Fastest Lap Time, Fastest Pitstop and Completed Race Points will all be determined using the official www.f1.com results.</li>
+							<li>A driver will be deemed to have completed the race if he is not listed as having retired from the race on www.f1.com - if a driver finishes the race but has been lapped by the race winner then they will be deemed to have completed the race and will score the 5 point bonus.</li>
+							</ol>
+							<p><small>* Disclaimer - The University, Department and Dictator-in-Chief of the League do not accept responsibility if you suffer any symptoms due to the thrilling effects of being part of this league. Please consult your G.P. if you experience any shortness of breath, arrythmia, sweaty palms or homicidal tendencies towards fellow League members during the course of the season.													</small></p>
+							<p><small>1    Subject to change by the FIA.</small></p>
+						</div>
+					</div>
+				</div>
+
+				
+
+			</div>
+		</div>
+
+		<div class = "navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">Site built by James R Ferry</p>
+				<!--<a class = "navbar-btn btn-danger btn pull-right">Subscribe on YouTube</a>-->
+			</div>
+		</div>
+
+		<div class="modal fade" id="contact" role="dialog">
+			<div class ="modal-dialog">
+				<div class = "modal-content">
+					<form class="form-horizontal">
+						<div class="modal-header">
+							<h4>Modal Text Here</h4>
+						</div>
+						<div class = "modal-body">
+							<div class="form-group">
+								<label for = "contact-name" class = "col-lg-2 control-label">Name:</label>
+								<div class = "col-lg-10">
+									<input type = "text" class="form-control" id="contact-name" placeholder="Hint Text" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for = "contact-email" class = "col-lg-2 control-label">Email:</label>
+								<div class = "col-lg-10">
+									<input type = "email" class="form-control" id="contact-email" placeholder="Hint Text" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for = "contact-message" class = "col-lg-2 control-label">Message:</label>
+								<div class = "col-lg-10">
+									<textarea class="form-control" rows="8"></textarea>
+								</div>
+							</div>
+						</div>
+						<div class = "modal-footer">
+							<a href="#" class="btn btn-default" data-dismiss = "modal">Modal Close Button</a>
+							<button class="btn btn-primary" type="submit">Send</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+</html>
