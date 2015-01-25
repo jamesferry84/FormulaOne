@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="formulaoneApp">
 	<head>
 	<title>Formula 1 Predictor</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,23 +42,15 @@
 				<div class="col-md-6">
 					<h3 <a href="#">Leaderboard</h3>
 					<div class="table-responsive ">
-  						<table class="table table-bordered">
+  						<table class="table table-bordered" ng-controller="LeaderboardCtrl">
 							<tr class ="success">
 								
 								<td>Name</td>
 								<td>Points</td>
 							</tr>
-							<tr>
-								<td>Example User One</td>
-								<td>500</td>
-							</tr>
-							<tr>
-								<td>Example User Two</td>
-								<td>400</td>
-							</tr>
-							<tr>
-								<td>Example User Three</td>
-								<td>300</td>
+							<tr ng-repeat="user in leaders | orderBy:-orderProp">
+								<td>{{user.username}}</td>
+								<td>{{user.points}}</td>
 							</tr>
 						</table>
 					</div>
@@ -67,23 +59,15 @@
 				<div class="col-md-6">
 					<h3 <a href="#">Next 3 Races</h3>
 					<div class="table-responsive ">
-  						<table class="table table-bordered">
+  						<table class="table table-bordered" ng-controller="FutureRacesCtrl">
 							<tr class ="success">
 								
 								<td>Date</td>
 								<td>Country</td>
 							</tr>
-							<tr>
-								<td>01/01/2015</td>
-								<td>Country One</td>
-							</tr>
-							<tr>
-								<td>02/01/2015</td>
-								<td>Country Two</td>
-							</tr>
-							<tr>
-								<td>03/01/2015</td>
-								<td>Country Three</td>
+							<tr ng-repeat="race in races | orderBy:orderProp">
+								<td>{{race.date}}</td>
+								<td>{{race.country}}</td>
 							</tr>
 						</table>
 					</div>
@@ -226,5 +210,7 @@
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/bootstrap.js"></script>
+		<script src="js/angular.js"></script>
+		<script src="js/controllers.js"></script>
 	</body>
 </html>
