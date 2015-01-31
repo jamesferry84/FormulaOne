@@ -10,13 +10,13 @@
 		<script src="js/angular.js"></script>
 		<script src="js/controllers.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
-		<script src="js/app.js"></script>
+
 	</head>
 	<body>
 
 		<div class="navbar navbar-inverse navbar-static-top">
-				<div class="container">
-					<a href="index.html" class="navbar-brand">F1 Predictor 2015</a>
+				<div class="container" ng-controller="headerNameCtrl">
+					<a href="index.html" class="navbar-brand">F1 Predictor 2015 - {{user}}</a>
 
 					<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
 						<span class = "icon-bar"></span>
@@ -55,7 +55,7 @@
 								<td>Points</td>
 							</tr>
 							<tr ng-repeat="user in leaders | orderBy:-orderProp">
-								<td>{{user.username}}</td>
+								<td><p ng-bind="user.username"></p></td>
 								<td>{{user.points}}</td>
 							</tr>
 						</table>
